@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { ChevronLeft, Play, Save, X } from "lucide-react"
@@ -72,7 +72,7 @@ const questions = {
   }
 }
 
-export default function CodingAssessment() {
+function CodingAssessmentContent() {
   const [code, setCode] = useState("")
   const [output, setOutput] = useState("")
   const [isRunning, setIsRunning] = useState(false)
@@ -264,5 +264,13 @@ export default function CodingAssessment() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function CodingAssessment() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CodingAssessmentContent />
+    </Suspense>
   )
 } 

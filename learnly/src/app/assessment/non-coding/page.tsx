@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { 
@@ -190,7 +190,7 @@ const MenuBar = ({ editor }: { editor: any }) => {
   )
 }
 
-export default function NonCodingAssessment() {
+function NonCodingAssessmentContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const difficulty = (searchParams.get("level") || "easy") as "easy" | "medium" | "hard"
@@ -312,5 +312,13 @@ export default function NonCodingAssessment() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function NonCodingAssessment() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <NonCodingAssessmentContent />
+    </Suspense>
   )
 } 

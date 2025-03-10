@@ -12,7 +12,11 @@ const nextConfig = {
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
     return config;
-  }
+  },
+  output: 'standalone',
+  experimental: {
+    serverActions: true,
+  },
 }
 
 module.exports = nextConfig 
