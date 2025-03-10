@@ -65,7 +65,7 @@ export default function Home() {
               <a href="#" className="text-gray-700 hover:text-[#0a8aaa]">
                 Course Content
               </a>
-              <a href="#" className="text-gray-700 hover:text-[#0a8aaa]">
+              <a href="/assessment" className="text-gray-700 hover:text-[#0a8aaa]">
                 Assessments
               </a>
               <a href="#" className="text-gray-700 hover:text-[#0a8aaa]">
@@ -92,7 +92,7 @@ export default function Home() {
                 <a href="#" className="text-gray-700 hover:text-[#0a8aaa] py-2">
                   Course Content
                 </a>
-                <a href="#" className="text-gray-700 hover:text-[#0a8aaa] py-2">
+                <a href="/assessment" className="text-gray-700 hover:text-[#0a8aaa] py-2">
                   Assessments
                 </a>
                 <a href="#" className="text-gray-700 hover:text-[#0a8aaa] py-2">
@@ -193,9 +193,9 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12 text-[#0a8aaa]">Your Learning Journey</h2>
           <div className="relative space-y-6">
             {/* Connecting Line */}
-            <div className="absolute left-8 top-[60px] bottom-8 w-0.5 bg-gradient-to-b from-[#0a8aaa] to-[#22d3ee] hidden md:block" />
+            <div className="absolute left-[39px] top-[40px] bottom-[40px] w-0.5 bg-gradient-to-b from-[#0a8aaa] to-[#22d3ee] hidden md:block" />
             
-            <Card className="p-6 border border-gray-200 shadow-sm relative hover:shadow-md transition-shadow">
+            <Card className="p-6 border border-gray-200 shadow-sm relative hover:shadow-md transition-shadow bg-white z-10">
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0 relative">
                   <div className="w-16 h-16 rounded-full bg-[#0a8aaa]/10 flex items-center justify-center">
@@ -212,7 +212,7 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card className="p-6 border border-gray-200 shadow-sm relative hover:shadow-md transition-shadow">
+            <Card className="p-6 border border-gray-200 shadow-sm relative hover:shadow-md transition-shadow bg-white z-10">
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0 relative">
                   <div className="w-16 h-16 rounded-full bg-[#0a8aaa]/10 flex items-center justify-center">
@@ -229,7 +229,7 @@ export default function Home() {
               </div>
             </Card>
 
-            <Card className="p-6 border border-gray-200 shadow-sm relative hover:shadow-md transition-shadow">
+            <Card className="p-6 border border-gray-200 shadow-sm relative hover:shadow-md transition-shadow bg-white z-10">
               <div className="flex items-start gap-6">
                 <div className="flex-shrink-0 relative">
                   <div className="w-16 h-16 rounded-full bg-[#0a8aaa]/10 flex items-center justify-center">
