@@ -2,19 +2,13 @@
 
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import Heading from '@tiptap/extension-heading'
 import { Button } from "@/components/ui/button"
 import { 
   Bold, 
   Italic, 
-  Strikethrough,
   List,
   ListOrdered,
-  Heading1,
-  Heading2,
-  Heading3,
   Quote,
-  Code,
   Undo,
   Redo
 } from "lucide-react"
@@ -45,38 +39,6 @@ const MenuBar = ({ editor }: { editor: any }) => {
       <Button
         variant="ghost"
         size="sm"
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        className={editor.isActive('strike') ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Strikethrough className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive('heading', { level: 1 }) ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Heading1 className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive('heading', { level: 2 }) ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Heading2 className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive('heading', { level: 3 }) ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Heading3 className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={editor.isActive('bulletList') ? 'bg-[#1a2b3b]' : ''}
       >
@@ -101,14 +63,6 @@ const MenuBar = ({ editor }: { editor: any }) => {
       <Button
         variant="ghost"
         size="sm"
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        className={editor.isActive('code') ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Code className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
         onClick={() => editor.chain().focus().undo().run()}
       >
         <Undo className="h-4 w-4" />
@@ -128,9 +82,6 @@ export default function TipTapEditor() {
   const editor = useEditor({
     extensions: [
       StarterKit,
-      Heading.configure({
-        levels: [1, 2, 3],
-      }),
     ],
     content: '',
     editorProps: {

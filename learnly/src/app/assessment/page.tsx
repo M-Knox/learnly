@@ -39,7 +39,6 @@ export default function AssessmentPage() {
   const [activeTab, setActiveTab] = useState("probability")
   const [showSearch, setShowSearch] = useState(true)
   const [questionType, setQuestionType] = useState("coding")
-  const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel>(null)
   const [sidebarExpanded, setSidebarExpanded] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const router = useRouter()
@@ -245,149 +244,70 @@ export default function AssessmentPage() {
             </div>
 
             {/* Difficulty Level Cards */}
-            {!selectedDifficulty ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6">
-                <Card
-                  className="bg-gradient-to-br from-[#0a8aaa]/5 to-[#22d3ee]/10 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex items-center transform hover:-translate-y-1 min-h-[12rem]"
-                  onClick={() => {
-                    setSelectedDifficulty("easy")
-                    if (questionType === "coding") {
-                      router.push("/assessment/coding?level=easy")
-                    } else {
-                      router.push("/assessment/non-coding?level=easy")
-                    }
-                  }}
-                >
-                  <div className="flex flex-col items-start">
-                    <div className="flex items-center mb-4">
-                      <BookOpen className="h-8 w-8 text-[#0a8aaa] mr-2" />
-                      <h3 className="text-lg sm:text-xl font-semibold text-[#0a8aaa]">Easy</h3>
-                    </div>
-                    <p className="text-sm sm:text-base text-gray-600">
-                      Start with foundational questions to build your confidence and understanding of basic concepts.
-                    </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6">
+              <Card
+                className="bg-gradient-to-br from-[#0a8aaa]/5 to-[#22d3ee]/10 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex items-center transform hover:-translate-y-1 min-h-[12rem]"
+                onClick={() => {
+                  if (questionType === "coding") {
+                    router.push("/assessment/coding?level=easy")
+                  } else {
+                    router.push("/assessment/non-coding?level=easy")
+                  }
+                }}
+              >
+                <div className="flex flex-col items-start">
+                  <div className="flex items-center mb-4">
+                    <BookOpen className="h-8 w-8 text-[#0a8aaa] mr-2" />
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#0a8aaa]">Easy</h3>
                   </div>
-                </Card>
-
-                <Card
-                  className="bg-gradient-to-br from-[#0a8aaa]/10 to-[#22d3ee]/20 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex items-center transform hover:-translate-y-1 min-h-[12rem]"
-                  onClick={() => {
-                    setSelectedDifficulty("medium")
-                    if (questionType === "coding") {
-                      router.push("/assessment/coding?level=medium")
-                    } else {
-                      router.push("/assessment/non-coding?level=medium")
-                    }
-                  }}
-                >
-                  <div className="flex flex-col items-start">
-                    <div className="flex items-center mb-4">
-                      <BrainCircuit className="h-8 w-8 text-[#0a8aaa] mr-2" />
-                      <h3 className="text-lg sm:text-xl font-semibold text-[#0a8aaa]">Medium</h3>
-                    </div>
-                    <p className="text-sm sm:text-base text-gray-600">
-                      Challenge yourself with intermediate level questions that test your problem-solving abilities.
-                    </p>
-                  </div>
-                </Card>
-
-                <Card
-                  className="bg-gradient-to-br from-[#0a8aaa]/20 to-[#22d3ee]/30 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex items-center transform hover:-translate-y-1 min-h-[12rem]"
-                  onClick={() => {
-                    setSelectedDifficulty("hard")
-                    if (questionType === "coding") {
-                      router.push("/assessment/coding?level=hard")
-                    } else {
-                      router.push("/assessment/non-coding?level=hard")
-                    }
-                  }}
-                >
-                  <div className="flex flex-col items-start">
-                    <div className="flex items-center mb-4">
-                      <Database className="h-8 w-8 text-[#0a8aaa] mr-2" />
-                      <h3 className="text-lg sm:text-xl font-semibold text-[#0a8aaa]">Hard</h3>
-                    </div>
-                    <p className="text-sm sm:text-base text-gray-600">
-                      Test your expertise with advanced questions that simulate real-world research scenarios.
-                    </p>
-                  </div>
-                </Card>
-              </div>
-            ) : (
-              <>
-                {/* Back Navigation */}
-                <div className="mb-4">
-                  <Button
-                    variant="ghost"
-                    className="flex items-center text-gray-600 hover:text-gray-900"
-                    onClick={() => setSelectedDifficulty(null)}
-                  >
-                    <ChevronLeft className="h-4 w-4 mr-1" />
-                    Back to difficulty levels
-                  </Button>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    Start with foundational questions to build your confidence and understanding of basic concepts.
+                  </p>
                 </div>
+              </Card>
 
-                {/* Questions for selected difficulty */}
-                <div className="grid gap-4 mb-6">
-                  {selectedDifficulty === "easy" && (
-                    <Card className="bg-[#0a8aaa]/10 p-4 rounded-md">
-                      <h3 className="text-center mb-2 text-[#0a8aaa] font-semibold">Research Methods - Easy Level</h3>
-                      <p>
-                        What is the difference between qualitative and quantitative research methods? Provide examples of when each would be most appropriate.
-                      </p>
-                    </Card>
-                  )}
-
-                  {selectedDifficulty === "hard" && (
-                    <Card className="bg-[#0a8aaa]/10 p-4 rounded-md">
-                      <h3 className="text-center mb-2 text-[#0a8aaa] font-semibold">Research Methods - Hard Level</h3>
-                      <p>
-                        Design a mixed-methods research study to investigate the impact of remote learning on student performance. Include your research questions, methodology, and how you would address potential validity threats.
-                      </p>
-                    </Card>
-                  )}
-
-                  {selectedDifficulty === "medium" && (
-                    <>
-                      <Card className="bg-[#0a8aaa]/10 p-4 rounded-md">
-                        <h3 className="text-center mb-2 text-[#0a8aaa] font-semibold">Research Methods - Medium Level</h3>
-                        <p>
-                          Explain the concept of sampling bias and describe three different sampling methods that could be used to minimize it in a research study.
-                        </p>
-                      </Card>
-
-                      <Card className="bg-[#0a8aaa]/10 p-4 rounded-md">
-                        <h3 className="text-center mb-2 text-[#0a8aaa] font-semibold">Research Methods - Medium Level</h3>
-                        <p>Describe the key components of a well-structured research hypothesis and provide an example in your field of study.</p>
-                      </Card>
-                    </>
-                  )}
-
-                  {/* Solution Editor */}
-                  <Card className="bg-white p-4 rounded-md mt-4">
-                    <div className="flex border-b mb-2">
-                      <Button variant="ghost" className="border-b-2 border-[#0a8aaa]">
-                        Write
-                      </Button>
-                      <Button variant="ghost">Preview</Button>
-                    </div>
-                    <p className="text-sm text-gray-600 mb-4">
-                      Write your solution in this editor. Save your solution to refer to it at anytime. Posting your
-                      solution will add it to the Solution Discussion section.
-                    </p>
-                    <div className="min-h-[150px] border rounded-md p-2">{/* Editor content would go here */}</div>
-                    <div className="flex gap-2 mt-4 justify-end">
-                      <Button variant="outline" className="bg-white">
-                        Save
-                      </Button>
-                      <Button variant="outline" className="bg-white">
-                        Post
-                      </Button>
-                    </div>
-                  </Card>
+              <Card
+                className="bg-gradient-to-br from-[#0a8aaa]/10 to-[#22d3ee]/20 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex items-center transform hover:-translate-y-1 min-h-[12rem]"
+                onClick={() => {
+                  if (questionType === "coding") {
+                    router.push("/assessment/coding?level=medium")
+                  } else {
+                    router.push("/assessment/non-coding?level=medium")
+                  }
+                }}
+              >
+                <div className="flex flex-col items-start">
+                  <div className="flex items-center mb-4">
+                    <BrainCircuit className="h-8 w-8 text-[#0a8aaa] mr-2" />
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#0a8aaa]">Medium</h3>
+                  </div>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    Challenge yourself with intermediate level questions that test your problem-solving abilities.
+                  </p>
                 </div>
-              </>
-            )}
+              </Card>
+
+              <Card
+                className="bg-gradient-to-br from-[#0a8aaa]/20 to-[#22d3ee]/30 p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer flex items-center transform hover:-translate-y-1 min-h-[12rem]"
+                onClick={() => {
+                  if (questionType === "coding") {
+                    router.push("/assessment/coding?level=hard")
+                  } else {
+                    router.push("/assessment/non-coding?level=hard")
+                  }
+                }}
+              >
+                <div className="flex flex-col items-start">
+                  <div className="flex items-center mb-4">
+                    <Database className="h-8 w-8 text-[#0a8aaa] mr-2" />
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#0a8aaa]">Hard</h3>
+                  </div>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    Test your expertise with advanced questions that simulate real-world research scenarios.
+                  </p>
+                </div>
+              </Card>
+            </div>
           </div>
         </div>
       </div>

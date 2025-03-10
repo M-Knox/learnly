@@ -23,10 +23,13 @@ import {
 } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
 
-// Dynamic imports for TipTap
+// Dynamic imports for TipTap with no SSR
 const TipTapEditor = dynamic(
   () => import('./TipTapEditor'),
-  { ssr: false }
+  { 
+    ssr: false,
+    loading: () => <div className="p-4 text-gray-400">Loading editor...</div>
+  }
 )
 
 // Questions data
@@ -187,9 +190,7 @@ function NonCodingAssessmentContent() {
                   </Button>
                 </div>
                 <div className="bg-[#1a2b3b]/80 backdrop-blur-sm rounded-md border border-gray-700">
-                  <Suspense fallback={<div className="p-4 text-gray-400">Loading editor...</div>}>
-                    <TipTapEditor />
-                  </Suspense>
+                  <TipTapEditor />
                 </div>
               </div>
             </div>
