@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Learnly - Data Science Education Platform",
   description: "Empowering young Kenyans with data science skills and knowledge",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
