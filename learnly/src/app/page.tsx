@@ -142,7 +142,7 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <div className="hidden md:block relative z-10">
+            <div className="hidden md:block relative z-10 animate-in slide-in-from-left duration-1000">
               <Image
                 src="/hero-dashboard.png"
                 alt="Data Science Dashboard Illustration"
