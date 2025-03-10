@@ -13,10 +13,7 @@ const nextConfig = {
     config.resolve.fallback = { fs: false };
     return config;
   },
-  output: 'standalone',
-  experimental: {
-    serverActions: true,
-  },
+  output: 'standalone'
 }
 
 module.exports = nextConfig 
