@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, Suspense } from "react"
+import dynamic from 'next/dynamic'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { 
@@ -21,11 +22,14 @@ import {
   Save
 } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
-import { useEditor, EditorContent } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
-import Heading from '@tiptap/extension-heading'
 
-// Define the questions for each difficulty level
+// Dynamic imports for TipTap
+const TipTapEditor = dynamic(
+  () => import('./TipTapEditor'),
+  { ssr: false }
+)
+
+// Questions data
 const questions = {
   easy: {
     title: "Research Methods Basics",
@@ -85,131 +89,11 @@ const questions = {
   }
 }
 
-const MenuBar = ({ editor }: { editor: any }) => {
-  if (!editor) {
-    return null
-  }
-
-  return (
-    <div className="border-b border-gray-700 p-2 flex flex-wrap gap-2">
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        className={editor.isActive('bold') ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Bold className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={editor.isActive('italic') ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Italic className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleStrike().run()}
-        className={editor.isActive('strike') ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Strikethrough className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive('heading', { level: 1 }) ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Heading1 className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive('heading', { level: 2 }) ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Heading2 className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive('heading', { level: 3 }) ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Heading3 className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive('bulletList') ? 'bg-[#1a2b3b]' : ''}
-      >
-        <List className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive('orderedList') ? 'bg-[#1a2b3b]' : ''}
-      >
-        <ListOrdered className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        className={editor.isActive('blockquote') ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Quote className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().toggleCode().run()}
-        className={editor.isActive('code') ? 'bg-[#1a2b3b]' : ''}
-      >
-        <Code className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().undo().run()}
-      >
-        <Undo className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => editor.chain().focus().redo().run()}
-      >
-        <Redo className="h-4 w-4" />
-      </Button>
-    </div>
-  )
-}
-
 function NonCodingAssessmentContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const difficulty = (searchParams.get("level") || "easy") as "easy" | "medium" | "hard"
   const question = questions[difficulty]
-
-  const editor = useEditor({
-    extensions: [
-      StarterKit,
-      Heading.configure({
-        levels: [1, 2, 3],
-      }),
-    ],
-    content: '',
-    editorProps: {
-      attributes: {
-        class: 'prose prose-invert max-w-none prose-p:text-gray-300 prose-headings:text-[#22d3ee] prose-blockquote:text-gray-400 prose-strong:text-white min-h-[400px] p-4 focus:outline-none',
-      },
-    },
-  })
 
   return (
     <div className="min-h-screen bg-[#0a1628] relative">
@@ -303,8 +187,9 @@ function NonCodingAssessmentContent() {
                   </Button>
                 </div>
                 <div className="bg-[#1a2b3b]/80 backdrop-blur-sm rounded-md border border-gray-700">
-                  <MenuBar editor={editor} />
-                  <EditorContent editor={editor} />
+                  <Suspense fallback={<div className="p-4 text-gray-400">Loading editor...</div>}>
+                    <TipTapEditor />
+                  </Suspense>
                 </div>
               </div>
             </div>
