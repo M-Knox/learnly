@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import {
   BarChart3,
   BookOpen,
@@ -77,7 +78,16 @@ export default function AssessmentPage() {
         onMouseEnter={() => setSidebarExpanded(true)}
         onMouseLeave={() => setSidebarExpanded(false)}
       >
-        <div className="mb-8 flex items-center justify-center">
+        <div className="mb-8 flex flex-col items-center justify-center gap-4">
+          <div className="w-12 h-12 relative">
+            <Image 
+              src="/reading-book.png" 
+              alt="Learnly Logo" 
+              width={48} 
+              height={48}
+              className="object-contain drop-shadow-md"
+            />
+          </div>
           {(sidebarExpanded || mobileMenuOpen) ? (
             <h1 className="text-xl font-bold text-[#22d3ee]">Learnly</h1>
           ) : (
