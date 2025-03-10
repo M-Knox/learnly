@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['*']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   typescript: {
     ignoreBuildErrors: true
@@ -10,7 +15,11 @@ const nextConfig = {
     ignoreDuringBuilds: true
   },
   webpack: (config) => {
-    config.resolve.fallback = { fs: false };
+    config.resolve.fallback = { 
+      fs: false,
+      path: false,
+      child_process: false
+    };
     return config;
   },
   output: 'standalone'
