@@ -5,7 +5,6 @@ import {
   BarChart3,
   BookOpen,
   BrainCircuit,
-  ChevronLeft,
   ClipboardCheck,
   Code,
   Database,
@@ -32,8 +31,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { useRouter } from "next/navigation"
-
-type DifficultyLevel = "easy" | "medium" | "hard" | null;
 
 export default function AssessmentPage() {
   const [activeTab, setActiveTab] = useState("probability")
