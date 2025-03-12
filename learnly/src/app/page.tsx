@@ -58,20 +58,20 @@ export default function Home() {
         <nav className="container mx-auto p-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-[#0a8aaa]">Learnly</span>
+              <a href="/" className="text-2xl font-bold text-[#0a8aaa] hover:text-[#096778]">Learnly</a>
             </div>
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-8">
-              <a href="#" className="text-gray-700 hover:text-[#0a8aaa]">
+              <a href="/courses" className="text-gray-700 hover:text-[#0a8aaa]">
                 Course Content
               </a>
               <a href="/assessment" className="text-gray-700 hover:text-[#0a8aaa]">
                 Assessments
               </a>
-              <a href="#" className="text-gray-700 hover:text-[#0a8aaa]">
+              <a href="/resources" className="text-gray-700 hover:text-[#0a8aaa]">
                 Resources
               </a>
-              <a href="#" className="text-gray-700 hover:text-[#0a8aaa]">
+              <a href="/community" className="text-gray-700 hover:text-[#0a8aaa]">
                 Community & Mentorship
               </a>
             </div>
@@ -89,16 +89,16 @@ export default function Home() {
           {mobileMenuOpen && (
             <div className="block md:hidden mt-4 py-4 border-t border-gray-200 animate-in fade-in slide-in-from-top duration-300">
               <div className="flex flex-col space-y-4">
-                <a href="#" className="text-gray-700 hover:text-[#0a8aaa] py-2">
+                <a href="/courses" className="text-gray-700 hover:text-[#0a8aaa] py-2">
                   Course Content
                 </a>
                 <a href="/assessment" className="text-gray-700 hover:text-[#0a8aaa] py-2">
                   Assessments
                 </a>
-                <a href="#" className="text-gray-700 hover:text-[#0a8aaa] py-2">
+                <a href="/resources" className="text-gray-700 hover:text-[#0a8aaa] py-2">
                   Resources
                 </a>
-                <a href="#" className="text-gray-700 hover:text-[#0a8aaa] py-2">
+                <a href="/community" className="text-gray-700 hover:text-[#0a8aaa] py-2">
                   Community & Mentorship
                 </a>
               </div>
@@ -459,7 +459,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold text-gray-800 mb-6">Community</h3>
               <ul className="space-y-4">
                 <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
+                  <a href="/community" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
                     Community & Mentorship
                   </a>
                 </li>

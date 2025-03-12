@@ -139,7 +139,7 @@ export default function AssessmentPage() {
                 </div>
                 <div className="hidden sm:ml-10 sm:flex sm:space-x-8">
                   <Link
-                    href="/"
+                    href="/courses"
                     className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                   >
                     Course Content
@@ -151,14 +151,14 @@ export default function AssessmentPage() {
                     Assessments
                   </Link>
                   <Link
-                    href="#"
-                    className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                    href="/resources"
+                    className="text-gray-300 hover:text-[#22d3ee] transition duration-300"
                   >
                     Resources
                   </Link>
                   <Link
-                    href="#"
-                    className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                    href="/community"
+                    className="text-gray-300 hover:text-[#22d3ee] transition duration-300"
                   >
                     Community & Mentorship
                   </Link>
