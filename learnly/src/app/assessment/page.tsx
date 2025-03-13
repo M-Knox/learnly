@@ -221,7 +221,7 @@ export default function AssessmentPage() {
           <Card className="bg-white p-4 sm:p-6 rounded-md shadow-sm mb-6 transition-all duration-300 hover:shadow-md hover:bg-gray-50">
             <div className="flex items-center mb-2">
               <ClipboardCheck className="h-6 w-6 text-[#0a8aaa] mr-2" />
-              <h2 className="text-lg sm:text-xl font-semibold">Research Methodology Assessments</h2>
+              <h2 className="text-lg sm:text-xl font-semibold">Assessments</h2>
             </div>
             <p className="text-gray-600 text-sm sm:text-base">
               Test your knowledge with our comprehensive research methodology assessments. These questions are designed to evaluate your
