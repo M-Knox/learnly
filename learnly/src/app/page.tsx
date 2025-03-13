@@ -130,6 +130,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="bg-[#0D7C8F] hover:bg-[#096778] text-white font-medium px-8 rounded-full transition-colors"
+                  onClick={() => window.location.href = '/courses'}
                 >
                   Get Started
                 </Button>
@@ -137,6 +138,7 @@ export default function Home() {
                   size="lg"
                   variant="outline"
                   className="bg-transparent hover:bg-[#0D7C8F]/10 text-white border-white hover:border-[#0D7C8F] rounded-full px-8 transition-colors"
+                  onClick={() => window.location.href = '/resources'}
                 >
                   Learn More
                 </Button>
@@ -270,6 +272,7 @@ export default function Home() {
                   </div>
                 ),
                 action: "View Course Content",
+                link: "/courses"
               },
               {
                 title: "Interactive Learning",
@@ -287,6 +290,7 @@ export default function Home() {
                   </div>
                 ),
                 action: "Take Assessment",
+                link: "/assessment"
               },
               {
                 title: "Resource Library",
@@ -304,6 +308,7 @@ export default function Home() {
                   </div>
                 ),
                 action: "Access Resources",
+                link: "/resources"
               },
             ].map((feature, index) => (
               <div key={index} className="bg-[#0a1628] p-6 text-center flex flex-col h-full">
@@ -311,7 +316,10 @@ export default function Home() {
                 <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
                 <p className="text-gray-300 mb-6 flex-grow">{feature.description}</p>
                 <div className="mt-auto">
-                  <Button className="bg-[#0D7C8F] hover:bg-[#096778] text-white font-medium rounded-full px-8 transition-colors">
+                  <Button 
+                    className="bg-[#0D7C8F] hover:bg-[#096778] text-white font-medium rounded-full px-8 transition-colors"
+                    onClick={() => window.location.href = feature.link}
+                  >
                     {feature.action}
                   </Button>
                 </div>
@@ -356,7 +364,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-auto">
-                <Button className="bg-[#0D7C8F] hover:bg-[#096778] text-white font-medium rounded-full px-8 py-6 transition-all hover:scale-105">
+                <Button 
+                  className="bg-[#0D7C8F] hover:bg-[#096778] text-white font-medium rounded-full px-8 py-6 transition-all hover:scale-105"
+                  onClick={() => window.location.href = '/community'}
+                >
                   Apply for Mentorship
                 </Button>
               </div>
@@ -393,7 +404,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-auto">
-                <Button className="bg-[#0D7C8F] hover:bg-[#096778] text-white font-medium rounded-full px-8 py-6 transition-all hover:scale-105">
+                <Button 
+                  className="bg-[#0D7C8F] hover:bg-[#096778] text-white font-medium rounded-full px-8 py-6 transition-all hover:scale-105"
+                  onClick={() => window.location.href = '/community'}
+                >
                   Join Community
                 </Button>
               </div>
@@ -413,113 +427,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-100 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-12 gap-12">
-            {/* Logo Section */}
-            <div className="flex flex-col items-center md:items-start md:col-span-3">
-              <span className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 tracking-tight">Learnly</span>
-              <div className="w-28 h-28 md:w-36 md:h-36 relative hover:scale-105 transition-transform duration-300">
-                <Image 
-                  src="/reading-book.png" 
-                  alt="Learnly Logo" 
-                  width={144} 
-                  height={144}
-                  className="object-contain drop-shadow-md"
-                />
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div className="space-y-4 md:col-span-2">
-              <h3 className="text-xl font-semibold text-gray-800 mb-6">Quick Links</h3>
-              <ul className="space-y-4">
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Courses
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Resources
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Community */}
-            <div className="space-y-4 md:col-span-2">
-              <h3 className="text-xl font-semibold text-gray-800 mb-6">Community</h3>
-              <ul className="space-y-4">
-                <li>
-                  <a href="/community" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Community & Mentorship
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Apply for Mentorship
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Join the community
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Connect */}
-            <div className="space-y-4 md:col-span-2">
-              <h3 className="text-xl font-semibold text-gray-800 mb-6">Connect</h3>
-              <ul className="space-y-4">
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Contact
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Email
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Twitter
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Newsletter */}
-            <div className="space-y-4 md:col-span-3 md:pl-4">
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Newsletter</h3>
-                <div className="w-12 h-1 bg-gradient-to-r from-[#0a8aaa] to-[#22d3ee] rounded-full" />
-              </div>
-              <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-                Subscribe to stay updated with our latest courses, events, and data science insights delivered straight to your inbox.
-              </p>
-              <NewsletterForm />
-              <p className="text-xs text-gray-500 mt-4 italic">
-                Join our growing community of data science learners
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

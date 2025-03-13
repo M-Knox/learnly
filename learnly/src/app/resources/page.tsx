@@ -368,7 +368,7 @@ export default function Resources() {
                 These tools provide powerful features for data analysis, visualization, and development.
               </p>
               
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-3 gap-6 mb-16">
                 {/* Jupyter Notebooks */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-[#22d3ee]/50 transition-all duration-300">
                   <h3 className="text-xl font-bold text-[#22d3ee] mb-3">Jupyter Notebooks</h3>
@@ -424,113 +424,6 @@ export default function Resources() {
           </div>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-gray-100 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-12 gap-12">
-            {/* Logo Section */}
-            <div className="flex flex-col items-center md:items-start md:col-span-3">
-              <span className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 tracking-tight">Learnly</span>
-              <div className="w-28 h-28 md:w-36 md:h-36 relative hover:scale-105 transition-transform duration-300">
-                <Image 
-                  src="/reading-book.png" 
-                  alt="Learnly Logo" 
-                  width={144} 
-                  height={144}
-                  className="object-contain drop-shadow-md"
-                />
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div className="space-y-4 md:col-span-2">
-              <h3 className="text-xl font-semibold text-gray-800 mb-6">Quick Links</h3>
-              <ul className="space-y-4">
-                <li>
-                  <Link href="/" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/courses" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Courses
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/resources" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Resources
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Community */}
-            <div className="space-y-4 md:col-span-2">
-              <h3 className="text-xl font-semibold text-gray-800 mb-6">Community</h3>
-              <ul className="space-y-4">
-                <li>
-                  <Link href="/community" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Community & Mentorship
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Apply for Mentorship
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Join the community
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Connect */}
-            <div className="space-y-4 md:col-span-2">
-              <h3 className="text-xl font-semibold text-gray-800 mb-6">Connect</h3>
-              <ul className="space-y-4">
-                <li>
-                  <Link href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    LinkedIn
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Email
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="text-gray-600 hover:text-[#0a8aaa] transition-colors">
-                    Twitter
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Newsletter */}
-            <div className="space-y-4 md:col-span-3 md:pl-4">
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Newsletter</h3>
-                <div className="w-12 h-1 bg-gradient-to-r from-[#0a8aaa] to-[#22d3ee] rounded-full" />
-              </div>
-              <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-                Subscribe to stay updated with our latest courses, events, and data science insights delivered straight to your inbox.
-              </p>
-              <NewsletterForm />
-              <p className="text-xs text-gray-500 mt-4 italic">
-                Join our growing community of data science learners
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 } 

@@ -7,6 +7,8 @@ const nextConfig = {
         hostname: '**',
       },
     ],
+    unoptimized: true,
+    domains: ['localhost'],
   },
   typescript: {
     ignoreBuildErrors: true

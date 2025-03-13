@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 const Mentors = () => {
@@ -6,22 +6,32 @@ const Mentors = () => {
     {
       name: "Sarah Johnson",
       role: "Data Science Lead",
-      image: "/mentors/sarah.jpg",
+      image: "/sarah.png",
       expertise: "Machine Learning, Python"
     },
     {
-      name: "Michael Chen",
+      name: "Bong Joon-ho",
       role: "Senior Data Analyst",
-      image: "/mentors/michael.jpg",
+      image: "/bong.jpg",
       expertise: "Data Analysis, SQL"
     },
     {
       name: "Lisa Wang",
       role: "AI Researcher",
-      image: "/mentors/lisa.jpg",
+      image: "/lisa.png",
       expertise: "Deep Learning, Computer Vision"
     }
   ];
+
+  // State to track image loading errors
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
+
+  const handleImageError = (mentorName: string) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [mentorName]: true
+    }));
+  };
 
   return (
     <section className="py-16">
@@ -31,12 +41,25 @@ const Mentors = () => {
           {mentors.map((mentor, index) => (
             <div key={index} className="bg-white rounded-lg shadow-sm p-6 text-center">
               <div className="relative w-32 h-32 mx-auto mb-4">
-                <Image
-                  src={mentor.image}
-                  alt={mentor.name}
-                  fill
-                  className="rounded-full object-cover"
-                />
+                {!imageErrors[mentor.name] ? (
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden">
+                    <Image
+                      src={mentor.image}
+                      alt={mentor.name}
+                      width={128}
+                      height={128}
+                      className="object-cover"
+                      onError={() => handleImageError(mentor.name)}
+                      unoptimized
+                    />
+                  </div>
+                ) : (
+                  <div className="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center">
+                    <span className="text-2xl font-semibold text-gray-400">
+                      {mentor.name.charAt(0)}
+                    </span>
+                  </div>
+                )}
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">{mentor.name}</h3>
               <p className="text-[#0a8aaa] font-medium mb-2">{mentor.role}</p>

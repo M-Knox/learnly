@@ -6,6 +6,7 @@
     "@tiptap/react": "^2.11.5",
     "@tiptap/starter-kit": "^2.11.5",
     "lucide-react": "^0.479.0",
+    "mongoose": "^8.12.1",
     "postcss-import": "^16.1.0",
     "react-intersection-observer": "^9.16.0",
     "react-markdown": "^10.1.0"

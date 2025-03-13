@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Card } from "@/components/ui/card";
 import CommunityForum from '@/components/Community/CommunityForum';
 import Mentors from '@/components/Community/Mentors';
+import Leaderboard from '@/components/Community/Leaderboard';
 
 const CommunityPage: React.FC = () => {
   return (
@@ -75,11 +76,20 @@ const CommunityPage: React.FC = () => {
           </div>
         </Card>
 
-        {/* Community Forum */}
-        <CommunityForum />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content - Forum */}
+          <div className="lg:col-span-2 space-y-8">
+            <CommunityForum />
+            <Mentors />
+          </div>
 
-        {/* Mentors Section */}
-        <Mentors />
+          {/* Sidebar - Leaderboard */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24">
+              <Leaderboard />
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );
